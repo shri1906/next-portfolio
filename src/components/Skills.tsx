@@ -134,7 +134,7 @@ export function Skills() {
                     alt={skill.name}
                     width={24}
                     height={24}
-                    className="object-contain"
+                    className="object-contain h-auto w-100"
                     priority
                   />
                 </div>

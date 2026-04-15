@@ -55,7 +55,7 @@ export function Navbar() {
                 alt="Shivam Maurya"
                 width={160}
                 height={160}
-                className="w-100"
+                className="h-auto w-100"
                 priority
               />
             </Link>

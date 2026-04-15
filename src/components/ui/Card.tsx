@@ -1,64 +1,24 @@
-// src/components/ui/Card.tsx
-'use client';
-
-import React from 'react';
 import { motion } from 'framer-motion';
+import { forwardRef } from 'react';
 import { cn } from '@/lib/cn';
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'outline' | 'elevated' | 'glass';
-  hover?: 'lift' | 'glow' | 'scale' | 'none';
+type CardProps = React.ComponentProps<typeof motion.div> & {
+  hover?: 'lift' | 'none';
   interactive?: boolean;
-}
+};
 
-export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  (
-    {
-      className,
-      variant = 'default',
-      hover = 'lift',
-      interactive = false,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const variants = {
-      default:
-        'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800',
-      outline:
-        'bg-transparent border-2 border-slate-300 dark:border-slate-700',
-      elevated:
-        'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg dark:shadow-lg',
-      glass:
-        'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/20 dark:border-slate-800/20',
-    };
-
-    const hoverEffects = {
-      lift: 'hover:shadow-xl dark:hover:shadow-xl hover:-translate-y-2',
-      glow: 'hover:shadow-glow dark:hover:shadow-dark-glow hover:border-cyan-500 dark:hover:border-cyan-500',
-      scale: 'hover:scale-105',
-      none: '',
-    };
-
-    const cardClasses = cn(
-      'rounded-2xl transition-all duration-300 p-6',
-      variants[variant],
-      interactive && hoverEffects[hover],
-      className
-    );
-
-    const Component = interactive ? motion.div : 'div';
-
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ className, hover = 'lift', interactive = true, ...props }, ref) => {
     return (
-      <Component
+      <motion.div
         ref={ref}
-        whileHover={interactive ? { y: hover === 'lift' ? -8 : undefined } : {}}
-        className={cardClasses}
+        whileHover={interactive ? { y: hover === 'lift' ? -8 : 0 } : {}}
+        className={cn(
+          'rounded-xl border p-6 transition-all',
+          className
+        )}
         {...props}
-      >
-        {children}
-      </Component>
+      />
     );
   }
 );
