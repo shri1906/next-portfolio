@@ -19,10 +19,11 @@ dist/
 .DS_Store
 *.pem
 
-# Debug
+# Debu
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
 # Local env files
 .env
