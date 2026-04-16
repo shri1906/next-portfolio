@@ -145,7 +145,7 @@ export function Skills() {
                     {skill.name}
                   </p>
                   <span
-                    className={`text-xs px-2 pb-1 rounded-full whitespace-nowrap ${skill.level === 'Expert'
+                    className={`text-xs px-2 rounded-full whitespace-nowrap ${skill.level === 'Expert'
                       ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
                       : skill.level === 'Advanced'
                         ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
