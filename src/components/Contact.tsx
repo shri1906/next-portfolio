@@ -85,7 +85,7 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -172,7 +172,7 @@ export function Contact() {
             className="flex flex-col justify-between"
           >
             {/* Info Boxes */}
-            <div className="space-y-6 m-8">
+            <div className="space-y-6 mt-8 ">
               {[
                 {
                   icon: Mail,
@@ -215,7 +215,7 @@ export function Contact() {
 
             {/* Social Links */}
             <div>
-              <h4 className="font-semibold text-slate-900 dark:text-white mb-6">
+              <h4 className="font-semibold text-slate-900 dark:text-white my-6 ">
                 Connect on social media
               </h4>
               <div className="flex gap-4">

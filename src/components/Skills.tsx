@@ -125,7 +125,7 @@ export function Skills() {
               <motion.div
                 key={skill.name}
                 whileHover={{ y: -6 }}
-                className="group flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-slate-200 dark:border-slate-800 hover:border-cyan-500 hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="group flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-slate-200 dark:border-slate-800 hover:border-cyan-500 hover:shadow-md transition-all duration-300 cursor-pointer min-w-0" 
               >
                 {/* Icon */}
                 <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 group-hover:bg-cyan-100 dark:group-hover:bg-cyan-900/30 transition">
@@ -140,12 +140,12 @@ export function Skills() {
                 </div>
 
                 {/* Text */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-slate-900 dark:text-white">
                     {skill.name}
                   </p>
                   <span
-                    className={`text-xs font-semibold px-2 pb-1 rounded-full ${skill.level === 'Expert'
+                    className={`text-xs px-2 pb-1 rounded-full whitespace-nowrap ${skill.level === 'Expert'
                       ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
                       : skill.level === 'Advanced'
                         ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
