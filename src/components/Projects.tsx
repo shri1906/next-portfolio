@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: 'CORS Registration Portal',
     description: 'A secure registration and subscription management portal for Survey of India enabling users to purchase real-time survey data with enterprise-grade security.',
     contribution: 'Led full-stack development including user authentication, payment gateway integration, and responsive UI design',
-    technologies: ['React.js', 'Node.js','Express.js','Bootstrap','CSS3', 'MySQL'],
+    technologies: ['React.js', 'Node.js', 'Express.js', 'Bootstrap', 'CSS3', 'MySQL'],
     type: 'Collaborative',
     metrics: ['30,000+ active users', '40% faster completion'],
     liveLink: 'https://cors.surveyofindia.gov.in/',
@@ -40,10 +40,10 @@ const projects: Project[] = [
     technologies: ['React.js', 'Express.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     type: 'Individual',
     metrics: ['1000+ records support', '0.2s response time'],
-    liveLink: 'https://ems-shri1906.vercel.app/login',
-    githubLink: 'https://github.com/shri1906/EMS-MERN',
+    liveLink: 'https://employee-management-system-nyu0.onrender.com/login',
+    githubLink: 'https://github.com/shri1906/Employee-Management-System',
     color: 'from-orange-500 to-accent-500',
-    image: '/ems.PNG',
+    image: '/ems.JPG',
   },
   {
     id: 3,
@@ -60,29 +60,29 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: 'Sephora Clone',
-    description: 'A full-featured e-commerce platform clone with shopping cart, checkout, and payment integration features.',
-    contribution: 'Developed cart management and checkout pages with Redux state management and Firebase integration',
-    technologies: ['React.js', 'Redux', 'Chakra UI', 'Firebase', 'MongoDB'],
-    type: 'Group',
-    metrics: ['Cart optimization', 'Fast checkout'],
-    liveLink: 'https://sephora-pink.vercel.app/',
-    githubLink: 'https://github.com/Ankur982/dull-letter-5131',
-    color: 'from-pink-500 to-rose-500',
-    image: '/sephora.PNG',
+    title: 'Real-time Chat App',
+    description: 'A real-time chat application enabling instant messaging with multiple users, typing indicators, and live updates using WebSockets.',
+    contribution: 'Implemented real-time messaging with Socket.io, built chat UI with Next.js, and handled state management for seamless communication.',
+    technologies: ['Next.js', 'Socket.io', 'Node.js', 'Express', 'MongoDB'],
+    type: 'Individual',
+    metrics: ['Real-time messaging', 'Low latency communication'],
+    liveLink: 'https://chatter-box-h1bi.onrender.com/',
+    githubLink: 'https://github.com/shri1906/chatter-box',
+    color: 'from-green-500 to-emerald-500',
+    image: '/chat.JPG',
   },
   {
     id: 5,
-    title: 'TimeCamp Clone',
-    description: 'A feature-rich time tracking application for managing tasks and monitoring productivity with real-time updates.',
-    contribution: 'Built dashboard page with advanced data visualization and real-time sync capabilities',
-    technologies: ['React.js', 'Redux', 'Chakra UI', 'Firebase'],
-    type: 'Group',
-    metrics: ['Real-time sync', 'Live dashboard'],
-    liveLink: 'https://timecampclone-cw.netlify.app/',
-    githubLink: 'https://github.com/ssksds/Time-Camp-Clone',
-    color: 'from-indigo-500 to-cyan-500',
-    image: '/time-camp.png',
+    title: 'Blog Application',
+    description: 'A full-stack blog platform where users can create, edit, and publish articles with authentication and dynamic content rendering.',
+    contribution: 'Developed REST APIs with Node.js, implemented authentication, and built responsive UI using Next.js.',
+    technologies: ['Next.js', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    type: 'Individual',
+    metrics: ['SEO optimized', 'Dynamic content rendering'],
+    liveLink: 'https://blog-web-4hnn.onrender.com/',
+    githubLink: 'https://github.com/shri1906/blog-web',
+    color: 'from-yellow-500 to-orange-500',
+    image: '/blog.JPG',
   },
   {
     id: 6,
@@ -162,10 +162,10 @@ export function Projects() {
                 {/* Project Type Badge */}
                 <div className="mb-3 inline-block">
                   <span className={`text-xs font-bold px-3 py-1 rounded-full ${project.type === 'Individual'
-                      ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
-                      : project.type === 'Group'
-                        ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300'
-                        : 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
+                    ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
+                    : project.type === 'Group'
+                      ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300'
+                      : 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
                     }`}>
                     {project.type}
                   </span>
