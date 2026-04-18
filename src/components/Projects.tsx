@@ -23,7 +23,7 @@ const projects: Project[] = [
     id: 1,
     title: 'CORS Registration Portal',
     description: 'A secure registration and subscription management portal for Survey of India enabling users to purchase real-time survey data with enterprise-grade security.',
-    contribution: 'Led full-stack development including user authentication, payment gateway integration, and responsive UI design',
+    contribution: 'Led full-stack development including user authentication and responsive UI design',
     technologies: ['React.js', 'Node.js', 'Express.js', 'Bootstrap', 'CSS3', 'MySQL'],
     type: 'Collaborative',
     metrics: ['30,000+ active users', '40% faster completion'],
@@ -184,7 +184,7 @@ export function Projects() {
                 {/* Contribution */}
                 <div className="mb-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
                   <p className="text-sm font-semibold text-slate-900 dark:text-white mb-2">
-                    Your Role
+                    My Role
                   </p>
                   <p className="text-sm text-slate-700 dark:text-slate-400">
                     {project.contribution}
