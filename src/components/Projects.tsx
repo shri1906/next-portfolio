@@ -89,13 +89,13 @@ const projects: Project[] = [
     title: 'IT Solution Website',
     description: 'A professional IT services website showcasing various IT solutions with modern design and responsive layout.',
     contribution: 'Designed responsive UI and implemented smooth scrolling with Bootstrap and custom CSS',
-    technologies: ['React.js', 'Bootstrap', 'CSS3'],
+    technologies: ['React.js','MongoDB','Node.js','Express.js','RazorPay', 'Bootstrap', 'CSS3'],
     type: 'Individual',
     metrics: ['Responsive design', 'Modern UI'],
-    liveLink: 'https://ram-it-solutions.vercel.app/',
-    githubLink: 'https://github.com/shri1906/ram-it-solutions',
+    liveLink: 'https://e-solutions-portal.onrender.com/',
+    githubLink: 'https://github.com/shri1906/E-solutions-MERN',
     color: 'from-green-500 to-emerald-500',
-    image: 'ramIT.PNG',
+    image: '/gauri.JPG',
   },
 ];
 
