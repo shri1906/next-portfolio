@@ -74,8 +74,8 @@ const projects: Project[] = [
   {
     id: 5,
     title: 'IT Solution Website',
-    description: 'A professional IT services website showcasing various IT solutions with modern design and responsive layout using the MERN stack. Also integrated RazorPay for seamless payment processing.',
-    contribution: 'Designed responsive UI and implemented smooth scrolling with Bootstrap and custom CSS',
+    description: 'A professional IT services website showcasing various IT solutions with modern design and responsive layout using the MERN stack.',
+    contribution: 'Developed REST APIs with Node.js, implemented authentication, and built responsive UI using MERN stack. Integrated RazorPay for secure payment processing.',
     technologies: ['React.js','MongoDB','Node.js','Express.js','RazorPay', 'Bootstrap', 'CSS3'],
     type: 'Individual',
     metrics: ['Responsive design', 'Modern UI'],
