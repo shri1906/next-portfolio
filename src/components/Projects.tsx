@@ -71,8 +71,21 @@ const projects: Project[] = [
     color: 'from-yellow-500 to-orange-500',
     image: '/blog.JPG',
   },
-   {
+  {
     id: 5,
+    title: 'IT Solution Website',
+    description: 'A professional IT services website showcasing various IT solutions with modern design and responsive layout using the MERN stack. Also integrated RazorPay for seamless payment processing.',
+    contribution: 'Designed responsive UI and implemented smooth scrolling with Bootstrap and custom CSS',
+    technologies: ['React.js','MongoDB','Node.js','Express.js','RazorPay', 'Bootstrap', 'CSS3'],
+    type: 'Individual',
+    metrics: ['Responsive design', 'Modern UI'],
+    liveLink: 'https://e-solutions-portal.onrender.com/',
+    githubLink: 'https://github.com/shri1906/E-solutions-MERN',
+    color: 'from-green-500 to-emerald-500',
+    image: '/gauri.JPG',
+  },
+   {
+    id: 6,
     title: 'Art Gallery Showcase',
     description: 'An elegant Art Gallery website showcasing various art pieces with detailed descriptions, filtering, and responsive design.',
     contribution: 'Designed and implemented complete UI/UX with smooth animations and image optimization',
@@ -83,19 +96,6 @@ const projects: Project[] = [
     githubLink: 'https://github.com/shri1906/art-gallery',
     color: 'from-purple-500 to-pink-500',
     image: '/art-gallery.PNG',
-  },
-  {
-    id: 6,
-    title: 'IT Solution Website',
-    description: 'A professional IT services website showcasing various IT solutions with modern design and responsive layout.',
-    contribution: 'Designed responsive UI and implemented smooth scrolling with Bootstrap and custom CSS',
-    technologies: ['React.js','MongoDB','Node.js','Express.js','RazorPay', 'Bootstrap', 'CSS3'],
-    type: 'Individual',
-    metrics: ['Responsive design', 'Modern UI'],
-    liveLink: 'https://e-solutions-portal.onrender.com/',
-    githubLink: 'https://github.com/shri1906/E-solutions-MERN',
-    color: 'from-green-500 to-emerald-500',
-    image: '/gauri.JPG',
   },
 ];
 
