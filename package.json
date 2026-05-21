@@ -10,13 +10,13 @@
     "export": "next build && next export"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@react-icons/all-files": "^4.1.0",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.310.0",
     "next": "^16.2.3",
+    "nodemailer": "^8.0.7",
     "postcss": "^8.4.32",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
