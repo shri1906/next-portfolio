@@ -158,7 +158,7 @@ export async function POST(req: Request) {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       replyTo: user_email,
-      subject: `💼 New Portfolio Message from ${user_name}`,
+      subject: `New Portfolio Message from ${user_name}`,
       html: htmlContent,
       text: `New message from ${user_name} (${user_email})\n\n${message}`,
     });
