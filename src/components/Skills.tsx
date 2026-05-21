@@ -1,7 +1,9 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 type SkillCategory = 'Frontend' | 'Backend' | 'Tools' | 'Other';
 
@@ -39,9 +41,9 @@ const skillsData: SkillGroup[] = [
   },
   {
     category: 'Backend',
-    color: 'from-orange-500 to-accent-500',
+    color: 'from-orange-500 to-red-500',
     bgGradient:
-      'from-orange-50 to-accent-50 dark:from-orange-950/30 dark:to-accent-950/30',
+      'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30',
     skills: [
       { name: 'Node.js', icon: '/nodejs.png', level: 'Expert' },
       { name: 'Express.js', icon: '/express.png', level: 'Expert' },
@@ -87,9 +89,9 @@ const itemVariants = {
 };
 
 export function Skills() {
-
-  // Skeleton Loader State
   const [loading, setLoading] = useState(true);
+
+  const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -102,9 +104,10 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 overflow-hidden"
+      className="relative py-24 overflow-hidden scroll-smooth"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Skeleton Loader */}
         {loading ? (
           <div className="animate-pulse space-y-16">
@@ -130,16 +133,16 @@ export function Skills() {
                   <div className="h-10 w-40 rounded bg-slate-200 dark:bg-slate-800" />
                 </div>
 
-                {/* Grid Skeleton */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                {/* Horizontal Skeleton */}
+                <div className="flex gap-6 overflow-hidden">
+                  {[1, 2, 3, 4, 5].map((i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950"
+                      className="min-w-[250px] flex items-center gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950"
                     >
 
                       {/* Icon Skeleton */}
-                      <div className="w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 flex-shrink-0" />
+                      <div className="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800 flex-shrink-0" />
 
                       {/* Text Skeleton */}
                       <div className="flex-1 space-y-2">
@@ -163,7 +166,6 @@ export function Skills() {
             </div>
           </div>
         ) : (
-          // Actual Skills Section 
           <>
             {/* Header */}
             <motion.div
@@ -190,41 +192,97 @@ export function Skills() {
               viewport={{ once: true }}
               className="space-y-12"
             >
-              {skillsData.map((group) => (
+              {skillsData.map((group, groupIndex) => (
                 <motion.div
                   key={group.category}
                   variants={itemVariants}
                   className={`p-4 rounded-2xl bg-gradient-to-br ${group.bgGradient} border border-slate-200 dark:border-slate-700`}
                 >
 
-                  {/* Category */}
-                  <div className="flex items-center gap-3 mb-8">
-                    <div
-                      className={`w-1 h-8 bg-gradient-to-b ${group.color} rounded-full`}
-                    />
+                  {/* Category + Buttons */}
+                  <div className="flex items-center justify-between mb-8">
 
-                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
-                      {group.category}
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-1 h-8 bg-gradient-to-b ${group.color} rounded-full`}
+                      />
+
+                      <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
+                        {group.category}
+                      </h3>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-3">
+
+                      {/* Prev */}
+                      <button
+                        onClick={() => {
+                          scrollRefs.current[groupIndex]?.scrollBy({
+                            left: -300,
+                            behavior: 'smooth',
+                          });
+                        }}
+                        className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
+                      >
+                        <ArrowLeft
+                          size={18}
+                        />
+                      </button>
+
+                      {/* Next */}
+                      <button
+                        onClick={() => {
+                          scrollRefs.current[groupIndex]?.scrollBy({
+                            left: 300,
+                            behavior: 'smooth',
+                          });
+                        }}
+                        className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
+                      >
+                        <ArrowRight
+                          size={18}
+                        />
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {/* Horizontal Scroll */}
+                  <div
+                    ref={(el) => {
+                      scrollRefs.current[groupIndex] = el;
+                    }}
+                    className="
+                      flex gap-6 overflow-x-auto pb-4
+                      scroll-smooth scrollbar-hide
+                    "
+                  >
                     {group.skills.map((skill) => (
                       <motion.div
                         key={skill.name}
                         whileHover={{ y: -6 }}
-                        className="group flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-slate-200 dark:border-slate-800 hover:border-cyan-500 hover:shadow-md transition-all duration-300 cursor-pointer min-w-0"
+                        className="
+                          group min-w-[250px]
+                          flex items-center gap-3 p-4
+                          rounded-xl
+                          bg-white/70 dark:bg-slate-900/70
+                          backdrop-blur-md
+                          border border-slate-200 dark:border-slate-800
+                          hover:border-cyan-500 hover:shadow-md
+                          transition-all duration-300
+                          cursor-pointer
+                          flex-shrink-0
+                        "
                       >
 
                         {/* Icon */}
-                        <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 group-hover:bg-cyan-100 dark:group-hover:bg-cyan-900/30 transition">
+                        <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 group-hover:bg-cyan-100 dark:group-hover:bg-cyan-900/30 transition">
                           <Image
                             src={skill.icon}
                             alt={skill.name}
-                            width={24}
-                            height={24}
-                            className="object-contain h-auto w-100"
+                            width={28}
+                            height={28}
+                            className="object-contain"
                             priority
                           />
                         </div>
@@ -236,7 +294,7 @@ export function Skills() {
                           </p>
 
                           <span
-                            className={`text-xs px-2 rounded-full whitespace-nowrap ${
+                            className={`text-xs px-2 py-1 rounded-full whitespace-nowrap ${
                               skill.level === 'Expert'
                                 ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
                                 : skill.level === 'Advanced'

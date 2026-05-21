@@ -1,8 +1,10 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Code2 } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -22,9 +24,18 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'CORS Registration Portal',
-    description: 'A secure registration and subscription management portal for Survey of India enabling users to purchase real-time survey data with enterprise-grade security.',
-    contribution: 'Led full-stack development including user authentication and responsive UI design',
-    technologies: ['React.js', 'Node.js', 'Express.js', 'Bootstrap', 'CSS3', 'MySQL'],
+    description:
+      'A secure registration and subscription management portal for Survey of India enabling users to purchase real-time survey data with enterprise-grade security.',
+    contribution:
+      'Led full-stack development including user authentication and responsive UI design',
+    technologies: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'Bootstrap',
+      'CSS3',
+      'MySQL',
+    ],
     type: 'Collaborative',
     metrics: ['30,000+ active users', '40% faster completion'],
     liveLink: 'https://cors.surveyofindia.gov.in/',
@@ -35,24 +46,45 @@ const projects: Project[] = [
   {
     id: 2,
     title: 'Employee Management System',
-    description: 'A comprehensive MERN stack application for managing employee records with CRUD operations, real-time updates, and role-based access control.',
-    contribution: 'Architected and implemented complete stack including JWT authentication and MongoDB aggregation queries',
-    technologies: ['React.js', 'Express.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    description:
+      'A comprehensive MERN stack application for managing employee records with CRUD operations, real-time updates, and role-based access control.',
+    contribution:
+      'Architected and implemented complete stack including JWT authentication and MongoDB aggregation queries',
+    technologies: [
+      'React.js',
+      'Express.js',
+      'Node.js',
+      'MongoDB',
+      'Tailwind CSS',
+    ],
     type: 'Individual',
     metrics: ['1000+ records support', '0.2s response time'],
-    liveLink: 'https://employee-management-system-nyu0.onrender.com/login',
-    githubLink: 'https://github.com/shri1906/Employee-Management-System',
-    color: 'from-orange-500 to-accent-500',
+    liveLink:
+      'https://employee-management-system-nyu0.onrender.com/login',
+    githubLink:
+      'https://github.com/shri1906/Employee-Management-System',
+    color: 'from-orange-500 to-red-500',
     image: '/ems.JPG',
   },
   {
     id: 3,
     title: 'Real-time Chat App',
-    description: 'A real-time chat application enabling instant messaging with multiple users, typing indicators, and live updates using WebSockets.',
-    contribution: 'Implemented real-time messaging with Socket.io, built chat UI with Next.js, and handled state management for seamless communication.',
-    technologies: ['Next.js', 'Socket.io', 'Node.js', 'Express', 'MongoDB'],
+    description:
+      'A real-time chat application enabling instant messaging with multiple users, typing indicators, and live updates using WebSockets.',
+    contribution:
+      'Implemented real-time messaging with Socket.io, built chat UI with Next.js, and handled state management for seamless communication.',
+    technologies: [
+      'Next.js',
+      'Socket.io',
+      'Node.js',
+      'Express',
+      'MongoDB',
+    ],
     type: 'Individual',
-    metrics: ['Real-time messaging', 'Low latency communication'],
+    metrics: [
+      'Real-time messaging',
+      'Low latency communication',
+    ],
     liveLink: 'https://chatter-box-h1bi.onrender.com/',
     githubLink: 'https://github.com/shri1906/chatter-box',
     color: 'from-green-500 to-emerald-500',
@@ -61,9 +93,17 @@ const projects: Project[] = [
   {
     id: 4,
     title: 'Blog Application',
-    description: 'A full-stack blog platform where users can create, edit, and publish articles with authentication and dynamic content rendering.',
-    contribution: 'Developed REST APIs with Node.js, implemented authentication, and built responsive UI using Next.js.',
-    technologies: ['Next.js', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    description:
+      'A full-stack blog platform where users can create, edit, and publish articles with authentication and dynamic content rendering.',
+    contribution:
+      'Developed REST APIs with Node.js, implemented authentication, and built responsive UI using Next.js.',
+    technologies: [
+      'Next.js',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'JWT',
+    ],
     type: 'Individual',
     metrics: ['SEO optimized', 'Dynamic content rendering'],
     liveLink: 'https://blog-web-4hnn.onrender.com/',
@@ -74,26 +114,44 @@ const projects: Project[] = [
   {
     id: 5,
     title: 'IT Solution Website',
-    description: 'A professional IT services website showcasing various IT solutions with modern design and responsive layout using the MERN stack.',
-    contribution: 'Developed REST APIs with Node.js, implemented authentication, and built responsive UI using MERN stack. Integrated RazorPay for secure payment processing.',
-    technologies: ['React.js','MongoDB','Node.js','Express.js','RazorPay', 'Bootstrap', 'CSS3'],
+    description:
+      'A professional IT services website showcasing various IT solutions with modern design and responsive layout using the MERN stack.',
+    contribution:
+      'Developed REST APIs with Node.js, implemented authentication, and built responsive UI using MERN stack. Integrated RazorPay for secure payment processing.',
+    technologies: [
+      'React.js',
+      'MongoDB',
+      'Node.js',
+      'Express.js',
+      'RazorPay',
+      'Bootstrap',
+      'CSS3',
+    ],
     type: 'Individual',
     metrics: ['Responsive design', 'Modern UI'],
     liveLink: 'https://e-solutions-portal.onrender.com/',
-    githubLink: 'https://github.com/shri1906/E-solutions-MERN',
+    githubLink:
+      'https://github.com/shri1906/E-solutions-MERN',
     color: 'from-green-500 to-emerald-500',
     image: '/gauri.JPG',
   },
-   {
+  {
     id: 6,
     title: 'Art Gallery Showcase',
-    description: 'An elegant Art Gallery website showcasing various art pieces with detailed descriptions, filtering, and responsive design.',
-    contribution: 'Designed and implemented complete UI/UX with smooth animations and image optimization',
-    technologies: ['React.js', 'Tailwind CSS', 'Framer Motion'],
+    description:
+      'An elegant Art Gallery website showcasing various art pieces with detailed descriptions, filtering, and responsive design.',
+    contribution:
+      'Designed and implemented complete UI/UX with smooth animations and image optimization',
+    technologies: [
+      'React.js',
+      'Tailwind CSS',
+      'Framer Motion',
+    ],
     type: 'Individual',
     metrics: ['Beautiful galleries', 'Smooth animations'],
     liveLink: 'https://brush-and-beyond.vercel.app/',
-    githubLink: 'https://github.com/shri1906/art-gallery',
+    githubLink:
+      'https://github.com/shri1906/art-gallery',
     color: 'from-purple-500 to-pink-500',
     image: '/art-gallery.PNG',
   },
@@ -111,13 +169,17 @@ const container = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
 };
 
 export function Projects() {
-
-  // Skeleton Loader
   const [loading, setLoading] = useState(true);
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -132,7 +194,8 @@ export function Projects() {
       id="projects"
       className="relative py-24 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Skeleton Loader */}
         {loading ? (
           <div className="animate-pulse space-y-16">
@@ -144,16 +207,16 @@ export function Projects() {
               <div className="mx-auto h-5 w-96 rounded bg-slate-200 dark:bg-slate-800" />
             </div>
 
-            {/* Projects Grid Skeleton */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Horizontal Skeleton */}
+            <div className="flex gap-8 overflow-hidden">
 
-              {[1, 2, 3, 4, 5, 6].map((i) => (
+              {[1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-5"
+                  className="min-w-[380px] rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-5"
                 >
 
-                  {/* Image Skeleton */}
+                  {/* Image */}
                   <div className="w-full h-48 rounded-xl bg-slate-200 dark:bg-slate-800" />
 
                   {/* Badge */}
@@ -171,7 +234,7 @@ export function Projects() {
                     <div className="h-4 w-5/6 rounded bg-slate-200 dark:bg-slate-800" />
                   </div>
 
-                  {/* Role Box */}
+                  {/* Role */}
                   <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-4 space-y-3">
                     <div className="h-4 w-24 rounded bg-slate-200 dark:bg-slate-800" />
 
@@ -187,7 +250,7 @@ export function Projects() {
                     <div className="h-6 w-24 rounded-full bg-slate-200 dark:bg-slate-800" />
                   </div>
 
-                  {/* Tech Stack */}
+                  {/* Tech */}
                   <div className="space-y-3">
                     <div className="h-4 w-24 rounded bg-slate-200 dark:bg-slate-800" />
 
@@ -219,9 +282,8 @@ export function Projects() {
             </div>
           </div>
         ) : (
-          // Actual Content 
           <>
-            {/* Section Header */}
+            {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{
@@ -241,132 +303,172 @@ export function Projects() {
               </p>
             </motion.div>
 
-            {/* Projects Grid */}
+            {/* Buttons */}
+            <div className="flex justify-end gap-3 mb-6">
+
+              {/* Prev */}
+              <button
+                onClick={() => {
+                  scrollRef.current?.scrollBy({
+                    left: -400,
+                    behavior: 'smooth',
+                  });
+                }}
+                className="w-11 h-11 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
+              >
+                <ArrowLeft
+                  size={18}
+                />
+              </button>
+
+              {/* Next */}
+              <button
+                onClick={() => {
+                  scrollRef.current?.scrollBy({
+                    left: 400,
+                    behavior: 'smooth',
+                  });
+                }}
+                className="w-11 h-11 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
+              >
+                <ArrowRight
+                  size={18}
+                />
+              </button>
+            </div>
+
+            {/* Horizontal Slider */}
             <motion.div
               variants={container}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {projects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={itemVariants}
-                  className="group h-full"
-                >
-                  <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl flex flex-col overflow-hidden">
+              <div
+                ref={scrollRef}
+                className="
+                  flex gap-8 overflow-x-auto pb-4
+                  scroll-smooth scrollbar-hide
+                "
+              >
+                {projects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    variants={itemVariants}
+                    className="group min-w-[380px] max-w-[380px] flex-shrink-0"
+                  >
+                    <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl flex flex-col overflow-hidden">
 
-                    {/* Image */}
-                    <div className="relative w-full h-48 mb-4 overflow-hidden rounded-xl">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
+                      {/* Image */}
+                      <div className="relative w-full h-48 mb-4 overflow-hidden rounded-xl">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
 
-                    {/* Badge */}
-                    <div className="mb-3 inline-block">
-                      <span
-                        className={`text-xs font-bold px-3 py-1 rounded-full ${
-                          project.type === 'Individual'
+                      {/* Badge */}
+                      <div className="mb-3 inline-block">
+                        <span
+                          className={`text-xs font-bold px-3 py-1 rounded-full ${project.type === 'Individual'
                             ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'
                             : project.type === 'Group'
                               ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300'
                               : 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
-                        }`}
-                      >
-                        {project.type}
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
-                      {project.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-slate-700 dark:text-slate-400 mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Contribution */}
-                    <div className="mb-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
-                      <p className="text-sm font-semibold text-slate-900 dark:text-white mb-2">
-                        My Role
-                      </p>
-
-                      <p className="text-sm text-slate-700 dark:text-slate-400">
-                        {project.contribution}
-                      </p>
-                    </div>
-
-                    {/* Metrics */}
-                    {project.metrics.length > 0 && (
-                      <div className="mb-4 flex flex-wrap gap-2">
-                        {project.metrics.map((metric) => (
-                          <span
-                            key={metric}
-                            className="text-xs font-medium px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
-                          >
-                            ✨ {metric}
-                          </span>
-                        ))}
+                            }`}
+                        >
+                          {project.type}
+                        </span>
                       </div>
-                    )}
 
-                    {/* Tech Stack */}
-                    <div className="mb-6 flex-1">
-                      <p className="text-xs font-bold text-slate-900 dark:text-white mb-3">
-                        TECH STACK
+                      {/* Title */}
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-slate-700 dark:text-slate-400 mb-4 leading-relaxed">
+                        {project.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                      {/* Contribution */}
+                      <div className="mb-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <p className="text-sm font-semibold text-slate-900 dark:text-white mb-2">
+                          My Role
+                        </p>
+
+                        <p className="text-sm text-slate-700 dark:text-slate-400">
+                          {project.contribution}
+                        </p>
                       </div>
-                    </div>
 
-                    {/* Links */}
-                    <div className="flex gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+                      {/* Metrics */}
+                      {project.metrics.length > 0 && (
+                        <div className="mb-4 flex flex-wrap gap-2">
+                          {project.metrics.map((metric) => (
+                            <span
+                              key={metric}
+                              className="text-xs font-medium px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300"
+                            >
+                              ✨ {metric}
+                            </span>
+                          ))}
+                        </div>
+                      )}
 
-                      <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold"
-                      >
-                        <ExternalLink size={16} />
-                        Live
-                      </motion.a>
+                      {/* Tech Stack */}
+                      <div className="mb-6 flex-1">
+                        <p className="text-xs font-bold text-slate-900 dark:text-white mb-3">
+                          TECH STACK
+                        </p>
 
-                      {project.githubLink && (
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Links */}
+                      <div className="flex gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+
                         <motion.a
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          href={project.githubLink}
+                          href={project.liveLink}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg border-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300"
+                          className="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold"
                         >
-                          <Github size={16} />
-                          Code
+                          <ExternalLink size={16} />
+                          Live
                         </motion.a>
-                      )}
+
+                        {project.githubLink && (
+                          <motion.a
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg border-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300"
+                          >
+                            <Github size={16} />
+                            Code
+                          </motion.a>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
             {/* CTA */}
