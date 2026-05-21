@@ -634,25 +634,36 @@ export function Contact() {
         body: JSON.stringify(formData),
       });
 
+      if (!response.ok) {
+        const errorText = await response.text();
+
+        console.error('Server Error:', errorText);
+
+        setStatus('Failed to send message!');
+        return;
+      }
+
       const data = await response.json();
 
-      if (response.ok) {
-        setStatus('✨ Message sent successfully!');
-        setFormData({
-          user_name: '',
-          user_email: '',
-          message: '',
-        });
+      setStatus(
+        data.message ||
+        '✨ Message sent successfully!'
+      );
 
-        setTimeout(() => setStatus(''), 3000);
-      } else {
-        setStatus(data.message || 'Failed to send message!');
-      }
+      setFormData({
+        user_name: '',
+        user_email: '',
+        message: '',
+      });
+
+      setTimeout(() => setStatus(''), 3000);
+
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error(
+        'Error sending message:',
+        error
+      );
       setStatus('Failed to send message!');
-    } finally {
-      setLoading(false);
     }
   };
 
