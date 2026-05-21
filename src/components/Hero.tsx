@@ -32,24 +32,33 @@ export function Hero() {
   const [displayedText, setDisplayedText] = useState('');
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+ useEffect(() => {
+  
+  const skeletonTimer = setTimeout(() => {
+    setLoading(false);
     let i = 0;
+    const typingInterval = setInterval(() => {
+      setDisplayedText(
+        text.slice(0, i + 1)
+      );
 
-    const interval = setInterval(() => {
-      setDisplayedText(text.slice(0, i + 1));
       i++;
 
       if (i === text.length) {
-        clearInterval(interval);
-
-        setTimeout(() => {
-          setLoading(false);
-        }, 500);
+        clearInterval(typingInterval);
       }
     }, 150);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(
+      typingInterval
+    );
+
+  }, 2500);
+
+  return () =>
+    clearTimeout(skeletonTimer);
+
+}, []);
 
   return (
     <section
