@@ -208,7 +208,7 @@ export function Projects() {
             </div>
 
             {/* Horizontal Skeleton */}
-            <div className="flex gap-8 overflow-hidden">
+            <div className="flex gap-6 overflow-hidden">
 
               {[1, 2, 3].map((i) => (
                 <div
@@ -355,7 +355,7 @@ export function Projects() {
                   <motion.div
                     key={project.id}
                     variants={itemVariants}
-                    className="group min-w-[380px] max-w-[380px] flex-shrink-0"
+                    className="group min-w-[370px] max-w-[370px] flex-shrink-0"
                   >
                     <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl flex flex-col overflow-hidden">
 

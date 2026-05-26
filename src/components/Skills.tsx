@@ -138,7 +138,7 @@ export function Skills() {
                   {[1, 2, 3, 4, 5].map((i) => (
                     <div
                       key={i}
-                      className="min-w-[250px] flex items-center gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950"
+                      className="min-w-full sm:min-w-[250px] flex items-center gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950"
                     >
 
                       {/* Icon Skeleton */}
@@ -208,8 +208,11 @@ export function Skills() {
                       />
 
                       <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
-                        {group.category}
+                        {group.category} 
                       </h3>
+                      <span className="badge bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-400 text-sm px-2 py-0 rounded-full">
+                          ({group.skills.length} skills)
+                        </span>
                     </div>
 
                     {/* Buttons */}
@@ -225,9 +228,7 @@ export function Skills() {
                         }}
                         className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
                       >
-                        <ArrowLeft
-                          size={18}
-                        />
+                        <ArrowLeft size={18} />
                       </button>
 
                       {/* Next */}
@@ -240,9 +241,7 @@ export function Skills() {
                         }}
                         className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
                       >
-                        <ArrowRight
-                          size={18}
-                        />
+                        <ArrowRight size={18} />
                       </button>
                     </div>
                   </div>
@@ -253,26 +252,32 @@ export function Skills() {
                       scrollRefs.current[groupIndex] = el;
                     }}
                     className="
-                      flex gap-6 overflow-x-auto pb-4
+                      flex gap-4 lg:gap-6
+                      overflow-x-auto pb-4
                       scroll-smooth scrollbar-hide
+                      snap-x snap-mandatory
                     "
                   >
                     {group.skills.map((skill) => (
                       <motion.div
                         key={skill.name}
                         whileHover={{ y: -6 }}
-                        className="
-                          group min-w-[250px]
-                          flex items-center gap-3 p-4
-                          rounded-xl
-                          bg-white/70 dark:bg-slate-900/70
-                          backdrop-blur-md
-                          border border-slate-200 dark:border-slate-800
-                          hover:border-cyan-500 hover:shadow-md
-                          transition-all duration-300
-                          cursor-pointer
-                          flex-shrink-0
-                        "
+                        className="group
+                            min-w-full
+                            sm:min-w-[48%]
+                            lg:min-w-[32%]
+                            xl:min-w-[23%]
+                            snap-start
+                            flex items-center gap-3 p-4
+                            rounded-xl
+                            bg-white/70 dark:bg-slate-900/70
+                            backdrop-blur-md
+                            border border-slate-200 dark:border-slate-800
+                            hover:border-cyan-500 hover:shadow-md
+                            transition-all duration-300
+                            cursor-pointer
+                            flex-shrink-0
+                          "
                       >
 
                         {/* Icon */}
