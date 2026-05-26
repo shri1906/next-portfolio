@@ -159,7 +159,7 @@ export function Navbar() {
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="md:hidden overflow-hidden"
+                  className="md:hidden overflow-hidden z-40 bg-white dark:bg-slate-950 border-t border-slate-200/20 dark:border-slate-800/20 shadow-lg"
                 >
                   <div className="px-2 pt-2 pb-3 space-y-1">
                     {navItems.map((item) => (
