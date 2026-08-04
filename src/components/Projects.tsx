@@ -23,6 +23,40 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Parvat Energy Solutions",
+    description:
+      "A modern corporate website for Parvat Energy Solutions built with Next.js and Tailwind CSS. The website showcases renewable energy services, company information, projects, and contact features with a responsive, SEO-friendly design.",
+
+    contribution:
+      "Designed and developed the complete frontend using Next.js, TypeScript, Tailwind CSS, and Framer Motion. Implemented responsive layouts, image optimization, SEO metadata, performance optimization, and modern UI/UX.",
+
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React",
+      "Vercel"
+    ],
+
+    type: "Individual",
+
+    metrics: [
+      "100% Responsive",
+      "SEO Optimized",
+      "95+ Lighthouse Score"
+    ],
+
+    liveLink: "https://parvatenergysolutions.in",
+
+    githubLink: "",
+
+    color: "from-emerald-500 to-teal-500",
+
+    image: "/parvat.jpg"
+  },
+  {
+    id: 2,
     title: 'CORS Registration Portal',
     description:
       'A secure registration and subscription management portal for Survey of India enabling users to purchase real-time survey data with enterprise-grade security.',
@@ -44,7 +78,7 @@ const projects: Project[] = [
     image: '/cors.webp',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Employee Management System',
     description:
       'A comprehensive MERN stack application for managing employee records with CRUD operations, real-time updates, and role-based access control.',
@@ -67,7 +101,7 @@ const projects: Project[] = [
     image: '/ems.JPG',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Real-time Chat App',
     description:
       'A real-time chat application enabling instant messaging with multiple users, typing indicators, and live updates using WebSockets.',
@@ -91,7 +125,7 @@ const projects: Project[] = [
     image: '/chat.JPG',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Blog Application',
     description:
       'A full-stack blog platform where users can create, edit, and publish articles with authentication and dynamic content rendering.',
@@ -112,7 +146,7 @@ const projects: Project[] = [
     image: '/blog.JPG',
   },
   {
-    id: 5,
+    id: 6,
     title: 'IT Solution Website',
     description:
       'A professional IT services website showcasing various IT solutions with modern design and responsive layout using the MERN stack.',
@@ -136,7 +170,7 @@ const projects: Project[] = [
     image: '/gauri.JPG',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Art Gallery Showcase',
     description:
       'An elegant Art Gallery website showcasing various art pieces with detailed descriptions, filtering, and responsive design.',
