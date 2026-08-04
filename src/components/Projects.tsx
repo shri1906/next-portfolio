@@ -53,7 +53,7 @@ const projects: Project[] = [
 
     color: "from-emerald-500 to-teal-500",
 
-    image: "/parvat.jpg"
+    image: "/parvat.JPG"
   },
   {
     id: 2,
