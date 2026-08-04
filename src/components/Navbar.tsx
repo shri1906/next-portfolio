@@ -49,8 +49,8 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-lg'
-          : 'bg-transparent'
+        ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-lg'
+        : 'bg-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,9 +133,9 @@ export function Navbar() {
                   aria-label="Toggle theme"
                 >
                   {theme === 'light' ? (
-                    <Moon size={20} aria-label='Dark Theme' />
+                    <Moon size={20} aria-hidden="true" />
                   ) : (
-                    <Sun size={20} aria-label='Light Theme' />
+                    <Sun size={20} aria-hidden="true" />
                   )}
                 </motion.button>
 
@@ -146,7 +146,11 @@ export function Navbar() {
                   className="md:hidden p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
                   aria-label="Toggle menu"
                 >
-                  {isOpen ? <X size={20} aria-label='Close Menu' /> : <Menu size={20} aria-label='Open Menu' />}
+                  {isOpen ? (
+                    <X size={20} aria-hidden="true" />
+                  ) : (
+                    <Menu size={20} aria-hidden="true" />
+                  )}
                 </motion.button>
               </div>
             </div>

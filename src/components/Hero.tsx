@@ -47,13 +47,13 @@ export function Hero() {
           clearInterval(typingInterval);
           setTypingComplete(true);
         }
-      }, 150);
+      }, 100);
 
       return () => clearInterval(
         typingInterval
       );
 
-    }, 2500);
+    }, 500);
 
     return () =>
       clearTimeout(skeletonTimer);
@@ -99,13 +99,6 @@ export function Hero() {
             <div className="space-y-4">
               <div className="mx-auto h-12 w-72 rounded-lg bg-slate-200 dark:bg-slate-800" />
               <div className="mx-auto h-16 w-96 rounded-lg bg-slate-200 dark:bg-slate-800" />
-            </div>
-
-            {/* Paragraph Skeleton */}
-            <div className="max-w-2xl mx-auto space-y-3">
-              <div className="h-4 rounded bg-slate-200 dark:bg-slate-800" />
-              <div className="h-4 rounded bg-slate-200 dark:bg-slate-800" />
-              <div className="h-4 w-2/3 mx-auto rounded bg-slate-200 dark:bg-slate-800" />
             </div>
 
             {/* Button Skeleton */}

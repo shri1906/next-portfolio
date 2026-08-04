@@ -414,11 +414,11 @@ export function Contact() {
                             </div>
 
                             <div>
-                              <h4 className="font-semibold text-slate-900 dark:text-white">
+                              <h3 className="font-semibold text-slate-900 dark:text-white">
                                 {
                                   item.title
                                 }
-                              </h4>
+                              </h3>
 
                               <p className="text-slate-600 dark:text-slate-400 text-sm">
                                 {
@@ -435,9 +435,9 @@ export function Contact() {
 
                 {/* Social */}
                 <div>
-                  <h4 className="font-semibold text-slate-900 dark:text-white my-6">
+                  <h3 className="font-semibold text-slate-900 dark:text-white my-6">
                     Connect on social media
-                  </h4>
+                  </h3>
 
                   <div className="flex gap-4">
 

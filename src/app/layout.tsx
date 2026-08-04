@@ -2,6 +2,21 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import './globals.css';
+import { Inter, Sora } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-sora",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivammaurya-coder.vercel.app"),
@@ -74,7 +89,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en"
+      className={`${inter.variable} ${sora.variable}`}
+      suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
