@@ -41,7 +41,7 @@ const projects: Project[] = [
     liveLink: 'https://cors.surveyofindia.gov.in/',
     githubLink: '',
     color: 'from-cyan-500 to-blue-500',
-    image: '/cors.PNG',
+    image: '/cors.webp',
   },
   {
     id: 2,
@@ -153,7 +153,7 @@ const projects: Project[] = [
     githubLink:
       'https://github.com/shri1906/art-gallery',
     color: 'from-purple-500 to-pink-500',
-    image: '/art-gallery.PNG',
+    image: '/art-gallery.webp',
   },
 ];
 
