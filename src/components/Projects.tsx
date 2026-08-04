@@ -314,6 +314,7 @@ export function Projects() {
                     behavior: 'smooth',
                   });
                 }}
+                aria-label="Scroll Left"
                 className="w-11 h-11 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
               >
                 <ArrowLeft
@@ -329,6 +330,7 @@ export function Projects() {
                     behavior: 'smooth',
                   });
                 }}
+                araia-label="Scroll Right"
                 className="w-11 h-11 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
               >
                 <ArrowRight

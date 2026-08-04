@@ -227,6 +227,7 @@ export function Skills() {
                           });
                         }}
                         className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
+                        araia-label="Scroll Left"
                       >
                         <ArrowLeft size={18} />
                       </button>
@@ -240,6 +241,7 @@ export function Skills() {
                           });
                         }}
                         className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
+                        araia-label="Scroll Right"
                       >
                         <ArrowRight size={18} />
                       </button>

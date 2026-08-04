@@ -92,7 +92,7 @@ export function Navbar() {
               >
                 <Link href="/" className="text-2xl font-bold">
                   <Image
-                    src="/shivam.png"
+                    src="/shivam.webp"
                     alt="Shivam Maurya"
                     width={160}
                     height={160}
@@ -133,9 +133,9 @@ export function Navbar() {
                   aria-label="Toggle theme"
                 >
                   {theme === 'light' ? (
-                    <Moon size={20} />
+                    <Moon size={20} aria-label='Dark Theme' />
                   ) : (
-                    <Sun size={20} />
+                    <Sun size={20} aria-label='Light Theme' />
                   )}
                 </motion.button>
 
@@ -146,7 +146,7 @@ export function Navbar() {
                   className="md:hidden p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
                   aria-label="Toggle menu"
                 >
-                  {isOpen ? <X size={20} /> : <Menu size={20} />}
+                  {isOpen ? <X size={20} aria-label='Close Menu' /> : <Menu size={20} aria-label='Open Menu' />}
                 </motion.button>
               </div>
             </div>

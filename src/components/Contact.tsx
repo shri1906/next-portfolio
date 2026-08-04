@@ -454,6 +454,7 @@ export function Contact() {
                             href={
                               social.href
                             }
+                            aria-label={`Open ${social.label} profile`}
                             target="_blank"
                             rel="noreferrer"
                             whileHover={{
