@@ -31,34 +31,34 @@ export function Hero() {
 
   const [displayedText, setDisplayedText] = useState('');
   const [loading, setLoading] = useState(true);
+  const [typingComplete, setTypingComplete] = useState(false);
 
- useEffect(() => {
-  
-  const skeletonTimer = setTimeout(() => {
-    setLoading(false);
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      setDisplayedText(
-        text.slice(0, i + 1)
+  useEffect(() => {
+
+    const skeletonTimer = setTimeout(() => {
+      setLoading(false);
+      let i = 0;
+      const typingInterval = setInterval(() => {
+        setDisplayedText(text.slice(0, i + 1));
+
+        i++;
+
+        if (i === text.length) {
+          clearInterval(typingInterval);
+          setTypingComplete(true);
+        }
+      }, 150);
+
+      return () => clearInterval(
+        typingInterval
       );
 
-      i++;
+    }, 2500);
 
-      if (i === text.length) {
-        clearInterval(typingInterval);
-      }
-    }, 150);
+    return () =>
+      clearTimeout(skeletonTimer);
 
-    return () => clearInterval(
-      typingInterval
-    );
-
-  }, 2500);
-
-  return () =>
-    clearTimeout(skeletonTimer);
-
-}, []);
+  }, []);
 
   return (
     <section
@@ -153,7 +153,9 @@ export function Hero() {
 
                 <span className="block bg-gradient-to-r from-cyan-500 via-blue-500 to-accent-500 dark:from-cyan-400 dark:via-blue-400 dark:to-orange-400 bg-clip-text text-transparent">
                   {displayedText}
-                  <span className="animate-pulse">|</span>
+                  {!typingComplete && (
+                    <span className="animate-pulse">|</span>
+                  )}
                 </span>
               </h1>
 
