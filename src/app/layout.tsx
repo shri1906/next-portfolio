@@ -4,20 +4,67 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Shivam Maurya - Full-Stack Web Developer',
-  description: 'Full-Stack Web Developer specializing in React, Node.js, and MongoDB. Explore my portfolio of modern web applications and projects.',
-  keywords: ['Full-Stack Developer', 'React', 'Node.js', 'Web Developer', 'MERN Stack', 'JavaScript'],
-  authors: [{ name: 'Shivam Maurya' }],
-  openGraph: {
-    title: 'Shivam Maurya - Full-Stack Web Developer',
-    description: 'Full-Stack Web Developer portfolio showcasing modern web applications',
-    type: 'website',
-    url: 'https://shri1906.github.io/',
+  metadataBase: new URL("https://shivammaurya-coder.vercel.app"),
+
+  title: {
+    default: "Shivam Maurya | Full Stack Developer",
+    template: "%s | Shivam Maurya",
   },
+
+  description:
+    "Portfolio of Shivam Maurya, Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, Express, and MySQL.",
+
+  keywords: [
+    "Shivam Maurya",
+    "Full Stack Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Node.js Developer",
+    "TypeScript",
+    "JavaScript",
+    "MySQL",
+    "Portfolio",
+  ],
+
+  authors: [{ name: "Shivam Maurya" }],
+  creator: "Shivam Maurya",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: "https://shivammaurya-coder.vercel.app",
+  },
+
+  openGraph: {
+    title: "Shivam Maurya | Full Stack Developer",
+    description:
+      "Portfolio showcasing projects built with Next.js, React, Node.js and MySQL.",
+    url: "https://shivammaurya-coder.vercel.app",
+    siteName: "Shivam Maurya Portfolio",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Shivam Maurya Portfolio",
+      },
+    ],
+  },
+
   twitter: {
-    card: 'summary_large_image',
-    title: 'Shivam Maurya - Full-Stack Web Developer',
-    description: 'Explore my portfolio of full-stack web development projects',
+    card: "summary_large_image",
+    title: "Shivam Maurya | Full Stack Developer",
+    description:
+      "Portfolio of Full Stack Developer Shivam Maurya",
+    images: ["/og-image.png"],
+  },
+  verification: {
+    google: "cAuOAKZN5jDDtY19uZO5gOO6rY0UmEfO_mFYO19Jj-U",
   },
 };
 

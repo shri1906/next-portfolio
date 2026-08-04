@@ -8,15 +8,34 @@ import { Skills } from '@/components/Skills';
 import { Projects } from '@/components/Projects';
 import { Contact, Footer } from '@/components/Contact';
 
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Shivam Maurya",
+  url: "https://shivammaurya-coder.vercel.app",
+  jobTitle: "Full Stack Developer",
+  image: "https://shivammaurya-coder.vercel.app/profile.jpg",
+  sameAs: [
+    "https://github.com/yourusername",
+    "https://linkedin.com/in/yourusername",
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(person),
+        }}
+      />
       <Navbar />
       <main className="relative overflow-hidden">
         {/* Background Effects */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
-          
+
           {/* Animated gradient background */}
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-200/20 dark:bg-cyan-800/10 rounded-full blur-3xl animate-pulse" />
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-200/20 dark:bg-blue-800/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
