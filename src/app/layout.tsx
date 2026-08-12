@@ -27,26 +27,35 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Portfolio of Shivam Maurya, Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, Express, and MySQL.",
+        'Shivam Maurya is a Full Stack Developer specializing in React, Next.js, Node.js, Express, MySQL, MongoDB and modern web application development.',
 
   keywords: [
-    "Shivam Maurya",
-    "Full Stack Developer",
-    "Next.js Developer",
-    "React Developer",
-    "Node.js Developer",
-    "TypeScript",
-    "JavaScript",
-    "MySQL",
-    "Portfolio",
+    'Shivam Maurya',
+    'Shivam Maurya Developer',
+    'Shivam Maurya Full Stack Developer',
+    'Shivam Maurya React Developer',
+    'Shivam Maurya Next.js Developer',
+    'Full Stack Developer',
+    'React Developer',
+    'Next.js Developer',
+    'Node.js Developer',
+    '$hivaM@1999'
   ],
 
-  authors: [{ name: "Shivam Maurya" }],
+  authors: [{ name: "Shivam Maurya", url: "https://shivammaurya-coder.vercel.app" }],
   creator: "Shivam Maurya",
+    publisher: 'Shivam Maurya',
 
-  robots: {
+   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 
   alternates: {
@@ -56,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shivam Maurya | Full Stack Developer",
     description:
-      "Portfolio showcasing projects built with Next.js, React, Node.js and MySQL.",
+       'Portfolio of Shivam Maurya, Full Stack Developer specializing in React, Next.js, Node.js and modern web development.',
     url: "https://shivammaurya-coder.vercel.app",
     siteName: "Shivam Maurya Portfolio",
     type: "website",
@@ -75,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shivam Maurya | Full Stack Developer",
     description:
-      "Portfolio of Full Stack Developer Shivam Maurya",
+       'Portfolio of Shivam Maurya, Full Stack Developer.',
     images: ["/og-image.png"],
   },
   verification: {

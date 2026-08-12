@@ -1,12 +1,12 @@
-// src/app/page.tsx
-'use client';
-
+import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { About } from '@/components/About';
-import { Skills } from '@/components/Skills';
-import { Projects } from '@/components/Projects';
-import { Contact, Footer } from '@/components/Contact';
+
+const About = dynamic(() => import('@/components/About').then((m) => m.About));
+const Skills = dynamic(() => import('@/components/Skills').then((m) => m.Skills));
+const Projects = dynamic(() => import('@/components/Projects').then((m) => m.Projects));
+const Contact = dynamic(() => import('@/components/Contact').then((m) => m.Contact));
+const Footer = dynamic(() => import('@/components/Contact').then((m) => m.Footer));
 
 const person = {
   "@context": "https://schema.org",
@@ -16,9 +16,16 @@ const person = {
   jobTitle: "Full Stack Developer",
   image: "https://shivammaurya-coder.vercel.app/profile.jpg",
   sameAs: [
-    "https://github.com/yourusername",
-    "https://linkedin.com/in/yourusername",
+    "https://github.com/shri1906",
+    "https://linkedin.com/in/shivam-maurya-5131331b6",
+    "https://x.com/ShivamM96073793",
   ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Survey of India",
+    url: "https://cors.surveyofindia.gov.in/",
+  },
+  
 };
 
 export default function Home() {
