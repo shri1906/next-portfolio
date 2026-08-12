@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     'React Developer',
     'Next.js Developer',
     'Node.js Developer',
-    '$hivaM@1999'
   ],
 
   authors: [{ name: "Shivam Maurya", url: "https://shivammaurya-coder.vercel.app" }],

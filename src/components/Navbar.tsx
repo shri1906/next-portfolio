@@ -81,7 +81,7 @@ export function Navbar() {
 
           // Actual Navbar Content
           <>
-            <div className="flex justify-between items-center h-16">
+            <div className="flex justify-between items-center h-20">
 
               {/* Logo */}
               <motion.div
