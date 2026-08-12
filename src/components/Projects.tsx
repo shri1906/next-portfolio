@@ -383,17 +383,17 @@ export function Projects() {
               <div
                 ref={scrollRef}
                 className="
-                  flex gap-8 overflow-x-auto pb-4
+                  flex gap-4 sm:gap-8 overflow-x-auto pb-4
                   scroll-smooth scrollbar-hide
+                  w-full
                 "
               >
                 {projects.map((project) => (
                   <motion.div
                     key={project.id}
-                    variants={itemVariants}
-                    className="group min-w-[370px] max-w-[370px] flex-shrink-0"
+                    className="group w-[calc(100vw-2rem)] sm:w-[370px] sm:min-w-[370px] sm:max-w-[370px] flex-shrink-0"
                   >
-                    <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl flex flex-col overflow-hidden">
+                    <div className="h-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl flex flex-col overflow-hidden">
 
                       {/* Image */}
                       <div className="relative w-full h-48 mb-4 overflow-hidden rounded-xl">
