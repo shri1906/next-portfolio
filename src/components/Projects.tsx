@@ -206,6 +206,22 @@ export function Projects() {
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
+  const scrollByCard = (direction: 'left' | 'right') => {
+  const container = scrollRef.current;
+  if (!container) return;
+
+  const card = container.querySelector<HTMLElement>('[data-project-card]');
+  if (!card) return;
+
+  const gap = parseFloat(getComputedStyle(container).columnGap || '0');
+  const distance = card.offsetWidth + gap;
+
+  container.scrollBy({
+    left: direction === 'left' ? -distance : distance,
+    behavior: 'smooth',
+  });
+};
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -333,12 +349,7 @@ export function Projects() {
 
               {/* Prev */}
               <button
-                onClick={() => {
-                  scrollRef.current?.scrollBy({
-                    left: -400,
-                    behavior: 'smooth',
-                  });
-                }}
+               onClick={() => scrollByCard('left')}
                 aria-label="Scroll Left"
                 className="w-11 h-11 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
               >
@@ -349,12 +360,7 @@ export function Projects() {
 
               {/* Next */}
               <button
-                onClick={() => {
-                  scrollRef.current?.scrollBy({
-                    left: 400,
-                    behavior: 'smooth',
-                  });
-                }}
+                onClick={() => scrollByCard('right')}
                 aria-label="Scroll Right"
                 className="w-11 h-11 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center"
               >
@@ -376,13 +382,15 @@ export function Projects() {
                 className="
                   flex gap-4 sm:gap-8 overflow-x-auto pb-4
                   scroll-smooth scrollbar-hide
+                  snap-x snap-mandatory
                   w-full
                 "
               >
                 {projects.map((project) => (
                   <motion.div
                     key={project.id}
-                    className="group w-[calc(100vw-2rem)] sm:w-[370px] sm:min-w-[370px] sm:max-w-[370px] flex-shrink-0"
+                    data-project-card
+                    className="group w-[calc(100vw-2rem)] sm:w-[370px] sm:min-w-[370px] sm:max-w-[370px] flex-shrink-0 snap-start"
                   >
                     <div className="h-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl flex flex-col overflow-hidden">
 
