@@ -209,9 +209,9 @@ export function Hero() {
               className="grid grid-cols-3 gap-8 pt-12 border-t border-slate-200 dark:border-slate-800"
             >
               {[
-                { label: 'Projects', value: '8+' },
+                { label: 'Projects', value: '12+' },
                 { label: 'Tech Stack', value: '20+' },
-                { label: 'Experience', value: '2+ yrs' },
+                { label: 'Experience', value: '3+ yrs' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
