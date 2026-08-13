@@ -81,7 +81,7 @@ export function Navbar() {
 
           // Actual Navbar Content
           <>
-            <div className="flex justify-between items-center h-20">
+            <div className="flex justify-between items-center h-16">
 
               {/* Logo */}
               <motion.div
@@ -92,9 +92,9 @@ export function Navbar() {
               >
                 <Link href="/" className="text-2xl font-bold">
                   <Image
-                    src="/shivam.webp"
+                    src="/logo.png"
                     alt="Shivam Maurya"
-                    width={160}
+                    width={200}
                     height={160}
                     className="h-auto w-100"
                     priority
