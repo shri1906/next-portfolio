@@ -56,22 +56,21 @@ npm start
 ```
 src/
 ├── app/
+│   ├── api/contact         # Email API
 │   ├── layout.tsx          # Root layout
 │   ├── page.tsx            # Home page
+│   ├── robots.ts           # SEO 
+│   ├── sitemap.ts          # SEO
 │   └── globals.css         # Global styles
-├── components/
-│   ├── Navbar.tsx          # Navigation
-│   ├── Hero.tsx            # Hero section
-│   ├── About.tsx           # About section
-│   ├── Skills.tsx          # Skills section
-│   ├── Projects.tsx        # Projects section
-│   ├── Contact.tsx         # Contact & Footer
-│   ├── ui/                 # Reusable UI components
-│   └── providers/          # Context providers
-├── lib/
-│   ├── cn.ts              # Utility functions
-│   └── animations.ts      # Animation presets
-└── hooks/                 # Custom React hooks
+└── components/
+    ├── Navbar.tsx          # Navigation
+    ├── Hero.tsx            # Hero section
+    ├── About.tsx           # About section
+    ├── Skills.tsx          # Skills section
+    ├── Projects.tsx        # Projects section
+    ├── Contact.tsx         # Contact & Footer
+    └── providers/          # Context providers
+
 ```
 
 ## 🎨 Customization
@@ -117,22 +116,6 @@ npm run build
 npm run deploy
 ```
 
-### Netlify
-
-```bash
-# Install Netlify CLI
-npm i -g netlify-cli
-
-# Deploy
-netlify deploy --prod --dir=.next
-```
-
-## 📚 Documentation
-
-- [Setup Guide](./SETUP_GUIDE.md) - Detailed setup instructions
-- [Implementation Guide](./Implementation_Guide.md) - Code examples
-- [Portfolio Feedback](./Portfolio_Review_and_Feedback.md) - Improvement suggestions
-
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 14
@@ -140,7 +123,6 @@ netlify deploy --prod --dir=.next
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
-- **State Management**: Zustand
 
 ## 📝 License
 
